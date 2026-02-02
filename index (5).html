@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> Multimedias </title>
+  <link rel="icon" type="image/jpeg" href=" https://images.icon-icons.com/4138/PNG/512/vehicle_storage_garage_parking_car_shelter_facility_icon_260877.png" >
+
+  <style>
+    :root{
+      --bg:#3C4C5B ;--card:#0b1222;--ink:#e5e7eb;--muted:#a1a1aa;--line:#1f2937;--accent:#60a5fa;--accent2:#22d3ee;--ring:rgba(96,165,250,.35)
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(1000px 700px at 15% -10%,#0b1227,var(--bg));color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif}
+    .wrap{max-width:1000px;margin:28px auto;padding:0 14px}
+    h1{font-size:clamp(22px,3vw,32px);margin:0 0 4px;font-weight:800;letter-spacing:.2px;display:flex;align-items:center;gap:10px}
+    .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 18px var(--ring)}
+    p.muted{color:#94a3b8;margin:8px 0 18px}
+    .bar{position:sticky;top:0;z-index:5;backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(15,23,42,.9),rgba(15,23,42,.6) 70%,transparent);padding:8px 0 16px}
+    .field{display:flex;gap:8px;align-items:center;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:8px 8px 8px 10px;box-shadow:0 0 0 0 var(--ring)}
+    .field:focus-within{box-shadow:0 0 0 4px var(--ring);border-color:#1C2630}
+    input[type=text]{flex:1;background:transparent;border:0;outline:none;color:var(--ink);font-size:16px;padding:10px}
+   
+    .pill{
+      font-size:12px;
+      border:1px solid #334155;
+      border-radius:999px;
+      padding:2px 8px;
+      background:rgba(96,165,250,.12);
+      color:#bfdbfe;
+      display:inline-flex;
+      align-items:center;
+      text-decoration:none;
+    }
+
+    .notices{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:12px;
+    }
+    @media (max-width: 720px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .card{background:linear-gradient(180deg,#23313D,#0b1224);border:1px solid var(--line);border-radius:16px;padding:14px;position:relative}
+    .card:hover{border-color:#1C2630}
+    .card h3{margin:0 44px 8px 0;font-size:16px}
+    .copy{position:absolute;top:10px;right:10px}
+    .btn{cursor:pointer;border:1px solid var(--line);background:#0b1222;color:var(--ink);padding:8px 12px;border-radius:12px;font-weight:700}
+    .btn.small{font-size:12px;padding:6px 10px;border-radius:10px}
+    .btn.ghost{background:transparent}
+    .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .empty{padding:28px;text-align:center;color:#9ca3af}
+    .hl { background: rgba(255, 230, 0, 0.4); padding: 0 .1em; border-radius: 4px; }
+   
+    .footer.simple {
+      margin: 30px 0 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #94a3b8;
+      letter-spacing: 0.5px;
+    }
+    
+    .sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+    /* Texto vs HTML dentro de tarjetas */
+    .card .b.text{
+      white-space:pre-wrap;word-wrap:break-word;margin:0;color:#d1d5db;font-family:inherit;
+    }
+    .card .b.html{white-space:normal;margin:0;color:#d1d5db;font-family:inherit;}
+    .card .b.html *{font-family:inherit}
+
+    /* Imágenes dentro de tarjetas “normales” (no afecta al carrusel por Shadow DOM) */
+    .card .b.text img, .card .b.html img{
+      max-width:100%;max-height:500px;object-fit:contain;display:block;margin:8px auto;border-radius:10px;
+    }
+
+    .card.wide{grid-column:1 / -1}
+
+    /* —— Formulario incidente —— */
+    .formbox{display:grid;gap:10px;margin-top:6px}
+    .formbox label{font-size:13px;color:#cbd5e1}
+    .formbox input,.formbox textarea{
+      background:#0b1222;border:1px solid var(--line);color:var(--ink);
+      border-radius:10px;padding:10px;font:inherit;outline:none
+    }
+    .formbox input:focus,.formbox textarea:focus{box-shadow:0 0 0 3px var(--ring);border-color:#334155}
+    .formbox textarea{min-height:120px;resize:vertical}
+    .formbox .row{display:flex;gap:8px}
+    .formbox .row > *{flex:1}
+    .formbox .status{font-size:13px;color:#93c5fd}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h2 style="text-align:center; color:#C0C0C0; text-shadow:0 0 6px rgba(255,255,255,0.3);">
+      ADECUACIONES
+    </h2>
+
+    <a class="pill" 
+       href="https://usertestcc.github.io/Plantillas/" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      DA CLICK AQUI Y REGRESA A CONTACT CENTER
+    </a>
+
+    <span class="pill">Última actualización 13 octubre 2025 - 16:23 </span>
+    <span id="count" class="pill"> </span> <br> 
+
+    <p class="muted">Escribe una palabra (ejemplo: <em>garantía</em>, <em>Perú</em>, <em>orden</em>, <em>no contactabilidad</em>).</p>
+
+    <div class="bar">
+      <div class="field">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/3000/svg" aria-hidden="true"><path d="M21 21L15.8 15.8M18 10.5A6.5 6.5 0 1 1 5 10.5a6.5 6.5 0 0 1 13 0Z" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="q" type="text" placeholder="Buscar" autocomplete="off"/>
+        <button id="clear" class="btn small ghost">Limpiar</button>
+      </div>
+
+      
+      <div class="notices">
+         
+      </div>
+    </div>
+
+    <!-- GRID -->
+    <div id="grid" class="grid"></div>
+    <div id="empty" class="empty" hidden>Sin resultados. Prueba con otras palabras o menos términos.</div>
+  </div>
+
+  <!-- Template de tarjeta -->
+  <template id="tpl">
+    <article class="card">
+      <h3 class="t"></h3>
+      <button class="btn small copy">Copiar</button>
+      <pre class="b text"></pre>
+    </article>
+  </template>
+
+  <!-- Modal Viewer -->
+  <dialog id="viewerDlg" class="viewer">
+    <div class="viewer-box">
+      <div class="viewer-actions">
+        <button id="viewerClose" class="viewer-close" autofocus>Cerrar ✕</button>
+      </div>
+      <div id="viewerContent" class="viewer-body"></div>
+    </div>
+  </dialog>
+
+  <!-- ===== Lógica del buscador ===== -->
+  <script>
+    const strip = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+    const $ = sel => document.querySelector(sel);
+
+    // ======= DATA =======
+    const DATA = [
+      /* ======= CARRUSEL AL FINAL ======= */
+
+
+
+
+      
+
+ 
+
+
+
+
+ 
+
+
+ 
+
+ 
+
+{
+        name: 'Adecuaciones Vitrinas frigoríficas FROSTER   ',
+        wide: true,
+        body: `
+<x-carousel-card autoplay interval="6000">
+  <span slot="title">
+     
+  </span>
+
+<img src=" https://res.cloudinary.com/dwbrg9r2n/image/upload/v1761926354/Requisitos_de_instalaciones_page-0105_ovpofq.jpg       " alt="Boletín 0">
+<img src="  https://res.cloudinary.com/dwbrg9r2n/image/upload/v1761926355/Requisitos_de_instalaciones_page-0107_hydumb.jpg      " alt="Boletín 0">
+<img src="     https://res.cloudinary.com/dwbrg9r2n/image/upload/v1761926355/Requisitos_de_instalaciones_page-0106_zvtgzi.jpg   " alt="Boletín 0">
+<img src="    https://res.cloudinary.com/dwbrg9r2n/image/upload/v1761926373/Requisitos_de_instalaciones_page-0108_xsruoo.jpg   " alt="Boletín 0">
+ 
+ 
+ 
+   <span slot="caption">Desliza para ver todos los boletines.</span>
+</x-carousel-card>`
+      },
+
+    ];
+
+    // DOM
+    const grid = $('#grid');
+    const empty = $('#empty');
+    const q = $('#q');
+    const count = $('#count');
+    const clearBtn = $('#clear');
+    const tpl = $('#tpl');
+    const agent = $('#agent');
+
+    // Modal helpers
+    const viewer = $('#viewerDlg');
+    const viewerContent = $('#viewerContent');
+    $('#viewerClose').addEventListener('click', ()=> viewer.close());
+    viewer.addEventListener('click', (e)=>{ if(e.target === viewer) viewer.close(); });
+
+    function openViewer(html){
+      viewerContent.innerHTML = html;
+      viewer.showModal();
+    }
+
+    function highlight(text, term){
+      if(!term) return text;
+      const esc = term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+      const re = new RegExp(`(${esc})`,'ig');
+      return text.replace(re,'<span class="hl">$1</span>');
+    }
+
+    function render(list, term=''){
+      grid.innerHTML = '';
+      list.forEach(item => {
+        const node = tpl.content.cloneNode(true);
+        const card = node.querySelector('.card');
+        const h3 = node.querySelector('.t');
+        const pre = node.querySelector('.b.text');
+        const btn = node.querySelector('.copy');
+
+        if(item.wide) card.classList.add('wide');
+        h3.innerHTML = highlight(item.name, term);
+
+        const hasHTML = /<[^>]+>/.test(item.body);
+
+        if(hasHTML){
+          const htmlBox = document.createElement('div');
+          htmlBox.className = 'b html';
+          htmlBox.innerHTML = item.body;
+          pre.replaceWith(htmlBox);
+
+          if (item.form) {
+            btn.style.display = 'none';
+          } else {
+            btn.textContent = 'Ver grande';
+            btn.style.display = 'inline-block';
+            btn.addEventListener('click', ()=> openViewer(item.body));
+          }
+
+        }else{
+          pre.innerHTML = highlight(item.body, term);
+          btn.addEventListener('click', async () => {
+            let text = item.body;
+            const a = agent?.value?.trim?.();                 
+            if(a) text = text.replace(/\{\{\s*\}\}/g, a).replace(/\{\{\s*\}\}/g, a);
+            try{
+              await navigator.clipboard.writeText(text);
+              btn.textContent='Copiado ✔';
+              setTimeout(()=>btn.textContent='Copiar',1200);
+            }catch{ alert('No se pudo copiar.'); }
+          });
+        }
+
+        grid.appendChild(node);
+      });
+      count.textContent = `${list.length} de ${DATA.length}`;
+      empty.hidden = list.length !== 0;
+    }
+
+    function doSearch(){
+      const term = q.value.trim();
+      if(!term){ render(DATA); return }
+      const S = strip(term);
+      const results = DATA.filter(it => strip(it.name+"\n"+it.body).includes(S));
+      render(results, term);
+    }
+
+    q.addEventListener('input', doSearch);
+    clearBtn.addEventListener('click', () => { q.value=''; q.focus(); doSearch(); });
+    document.addEventListener('keydown', (e)=>{ if(e.ctrlKey && e.key === '/'){ e.preventDefault(); q.focus(); }});
+
+    render(DATA);
+
+    // —— Envío de formulario de incidente ——
+    document.addEventListener('submit', async (e) => {
+      const form = e.target;
+      if (form && form.id === 'form-incidente') {
+        e.preventDefault();
+        const msg = form.querySelector('#form-msg');
+
+        const fd = new FormData(form);
+        const operador = (fd.get('operador') || '').trim();
+        const incidencia = (fd.get('incidencia') || '').trim();
+        const ticket = (fd.get('ticket') || '').trim();
+
+        if (!operador || !incidencia) {
+          msg.textContent = 'Completa Operador e Inconveniente.';
+          return;
+        }
+
+        msg.textContent = 'Enviando…';
+
+        try {
+          const res = await fetch('send-mail.php', { method:'POST', body: fd });
+          const data = await res.json();
+          if (data.ok) {
+            msg.textContent = 'Enviado ✅';
+            form.reset();
+          } else {
+            msg.textContent = 'No se pudo enviar. ' + (data.msg || '');
+          }
+        } catch (err) {
+          msg.textContent = 'Error de red al enviar.';
+        }
+      }
+    });
+  </script>
+
+  <!-- ===== Componente Web del Carrusel ===== -->
+  <script>
+    class XCarouselCard extends HTMLElement {
+      static get observedAttributes() { return ["autoplay", "interval"]; }
+      constructor() {
+        super();
+        const root = this.attachShadow({ mode: "open" });
+        root.innerHTML = `
+          <style>
+            :host { display:block; }
+            .card { border-radius:12px; border:1px solid rgba(255,255,255,.1); background:#0f172a; color:#e2e8f0; overflow:hidden; }
+            .header { padding:10px 12px; font-weight:600; border-bottom:1px solid rgba(255,255,255,.08);}
+            /* ← SIN aspect-ratio: el alto lo define la imagen */
+            .viewport { position:relative; width:100%; background:#0b1220; }
+            .track { display:flex; width:100%; transition: transform .35s ease; touch-action: pan-y; }
+            .slide { min-width:100%; display:block; }
+            .slide img { width:100%; height:auto; display:block; }
+            .controls { position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; pointer-events:none; }
+            .btn { pointer-events:auto; cursor:pointer; user-select:none; width:36px; height:36px; border:0; border-radius:999px; display:grid; place-items:center; background:rgba(15,23,42,.7); color:#fff; margin:0 6px; }
+            .btn:focus-visible { outline:2px solid #38bdf8; }
+            .dots { position:absolute; left:0; right:0; bottom:8px; display:flex; gap:6px; justify-content:center; }
+            .dot { width:8px; height:8px; border-radius:999px; background:rgba(255,255,255,.35); border:0; padding:0; cursor:pointer; }
+            .dot[aria-current="true"] { background:#fff; }
+            .footer { padding:8px 12px; border-top:1px solid rgba(255,255,255,.08); font-size:.875rem; color:#94a3b8;}
+          </style>
+          <div class="card" part="card">
+            <div class="header" part="header"><slot name="title"></slot></div>
+            <div class="viewport" part="viewport">
+              <div class="track" part="track"></div>
+              <div class="controls">
+                <button class="btn prev" aria-label="Anterior" part="prev">‹</button>
+                <button class="btn next" aria-label="Siguiente" part="next">›</button>
+              </div>
+              <div class="dots" part="dots"></div>
+            </div>
+            <div class="footer" part="footer"><slot name="caption"></slot></div>
+          </div>
+        `;
+
+        this._track = root.querySelector(".track");
+        this._dotsBox = root.querySelector(".dots");
+        this._btnPrev = root.querySelector(".prev");
+        this._btnNext = root.querySelector(".next");
+        this._idx = 0; this._slides = []; this._timer = null;
+
+        this._btnPrev.addEventListener("click", () => this.prev());
+        this._btnNext.addEventListener("click", () => this.next());
+        this._initSlides();
+      }
+
+      attributeChangedCallback(name) {
+        if (name === "autoplay" || name === "interval") this._setupAutoplay();
+      }
+
+      connectedCallback() {
+        this.setAttribute("tabindex", "0");
+        this._setupAutoplay();
+      }
+
+      disconnectedCallback(){ this._pause(); }
+
+      next(){ this._idx = (this._idx + 1) % this._slides.length; this._update(); }
+      prev(){ this._idx = (this._idx - 1 + this._slides.length) % this._slides.length; this._update(); }
+
+      _initSlides(){
+        const imgs = Array.from(this.querySelectorAll("img"));
+        this._track.innerHTML = "";
+        this._dotsBox.innerHTML = "";
+        this._slides = imgs.map((img, i) => {
+          const wrap = document.createElement("div");
+          wrap.className = "slide";
+          wrap.appendChild(img.cloneNode(true));
+          this._track.appendChild(wrap);
+
+          const dot = document.createElement("button");
+          dot.className = "dot";
+          dot.setAttribute("aria-label", `Ir a la imagen ${i+1}`);
+          dot.addEventListener("click", () => { this._idx = i; this._update(); this._pause(); this._resume(); });
+          this._dotsBox.appendChild(dot);
+          return wrap;
+        });
+        this._idx = 0; this._update();
+      }
+
+      _applyTransform(idx){
+        const offset = -idx * 100;
+        this._track.style.transform = `translateX(${offset}%)`;
+      }
+
+      _update(){
+        if(!this._slides.length) return;
+        this._applyTransform(this._idx);
+        Array.from(this._dotsBox.children).forEach((d,i)=>
+          d.setAttribute("aria-current", i === this._idx ? "true" : "false")
+        );
+      }
+
+      _setupAutoplay(){
+        this._pause();
+        const attr = (this.getAttribute("autoplay") || "").toLowerCase();
+        const enabled = attr === "" || attr === "true";
+        if(!enabled) return;
+        const ms = Number(this.getAttribute("interval")) || 4000;
+        this._timer = setInterval(()=>this.next(), ms);
+        this.addEventListener("mouseenter", ()=>this._pause());
+        this.addEventListener("mouseleave", ()=>this._resume());
+        this.addEventListener("focusin", ()=>this._pause());
+        this.addEventListener("focusout", ()=>this._resume());
+      }
+
+      _pause(){ if(this._timer){ clearInterval(this._timer); this._timer=null; } }
+      _resume(){ if(!this._timer) this._setupAutoplay(); }
+    }
+    customElements.define("x-carousel-card", XCarouselCard);
+  </script>
+
+  <div class="footer simple">
+    <h3><em> Service Playbook Indurama </em></h3>
+    &copy; 2025 — Ψ Edisson Fernando Fierro C.
+    <p>Versión 1.0</p>
+  </div>
+</body>
+</html>
